@@ -1,0 +1,31 @@
+<div class="button-holder">
+  <button mat-raised-button color="primary" routerLink="/hero">
+    Add a Hero
+  </button>
+</div>
+<div class="table">
+  <table mat-table [dataSource]="heroes" class="mat-elevation-z8">
+    <ng-container matColumnDef="heroName">
+      <th mat-header-cell *matHeaderCellDef>Hero Name</th>
+      <td mat-cell *matCellDef="let hero">{{ hero.heroName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="realName">
+      <th mat-header-cell *matHeaderCellDef>Real Name</th>
+      <td mat-cell *matCellDef="let hero">{{ hero.realName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="skill">
+      <th mat-header-cell *matHeaderCellDef>Skill</th>
+      <td mat-cell *matCellDef="let hero">{{ hero.skill }}</td>
+    </ng-container>
+    <ng-container matColumnDef="universe">
+      <th mat-header-cell *matHeaderCellDef>Universe</th>
+      <td mat-cell *matCellDef="let hero">{{ hero.universe }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      [routerLink]="'/hero/' + row._id"
+    ></tr>
+  </table>
+</div>

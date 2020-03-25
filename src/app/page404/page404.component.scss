@@ -1,0 +1,26 @@
+.wrapper {
+  background-color: #3f51b5;
+  color: white;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.announcement {
+  text-align: center;
+
+  mat-icon {
+    margin-bottom: 100px;
+    font-size: 50pt;
+  }
+
+  h1 {
+    font-size: 60pt;
+  }
+
+  .back-to-home {
+    margin-top: 60px;
+    cursor: pointer;
+  }
+}

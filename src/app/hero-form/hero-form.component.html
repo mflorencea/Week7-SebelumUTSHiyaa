@@ -1,0 +1,64 @@
+<div *ngIf="error">Hero with ID {{ this.id }} is not available</div>
+
+<form>
+  <h1>Hero Form</h1>
+  <mat-form-field appearance="outline">
+    <mat-label>Hero Name</mat-label>
+    <input
+      matInput
+      placeholder="type the hero name"
+      name="heroName"
+      id="heroName"
+      [(ngModel)]="hero.heroName"
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="outline">
+    <mat-label>Real Name</mat-label>
+    <input
+      matInput
+      placeholder="type the real name"
+      name="realName"
+      id="realName"
+      [(ngModel)]="hero.realName"
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="outline">
+    <mat-label>Skill</mat-label>
+    <input
+      matInput
+      placeholder="type the hero skill"
+      name="skill"
+      id="skill"
+      [(ngModel)]="hero.skill"
+    />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-label>Universe</mat-label>
+    <mat-select name="universe" id="universe" [(ngModel)]="hero.universe">
+      <mat-option value="MCU">
+        Marvel Cinematic Universe
+      </mat-option>
+      <mat-option value="DCEU">
+        DC Extended Universe
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="buttons">
+    <div *ngIf="update">
+      <button mat-raised-button color="warn" (click)="deleteHero()">
+        delete
+      </button>
+      <button mat-raised-button color="primary" (click)="updateHero()">
+        update
+      </button>
+    </div>
+    <div *ngIf="!update">
+      <button mat-raised-button (click)="postHero()" color="primary">
+        post
+      </button>
+    </div>
+  </div>
+</form>
