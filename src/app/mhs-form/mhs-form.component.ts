@@ -1,21 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
+import { Mhs } from '../mhs';
 import { DataService } from '../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatTreeNestedDataSource} from '@angular/material/tree';
+
+/*
+interface JurusanNode {
+  name: string;
+  children?: JurusanNode[];
+}
+
+const TREE_DATA: JurusanNode[] = [
+  {
+    name: 'Program Studi',
+    children: [
+      {name: 'Akuntansi'},
+      {name: 'Ilmu Administrasi Bisnis'},
+      {name: 'Ilmu Komunikasi'},
+      {name: 'Manajemen'},
+      {name: 'Sistem Informasi'},
+      {name: 'Teknik Informatika'}
+    ]
+  }
+]
+*/
 
 @Component({
-  selector: 'app-hero-form',
-  templateUrl: './hero-form.component.html',
-  styleUrls: ['./hero-form.component.scss']
+  selector: 'app-mhs-form',
+  templateUrl: './mhs-form.component.html',
+  styleUrls: ['./mhs-form.component.scss']
 })
-export class HeroFormComponent implements OnInit {
-  hero: Hero = {
+export class MhsFormComponent implements OnInit {
+  mhs: Mhs = {
     _id: '',
-    heroName: '',
-    realName: '',
-    universe: 'MCU',
-    skill: ''
+    mhsName: '',
+    smaName: '',
+    jurusan: 'Akuntansi',
+    domisili: '',
+    tanggal: ''
   };
   id = null;
   error = false;
@@ -39,9 +62,9 @@ export class HeroFormComponent implements OnInit {
       if (params.get('id')) {
         this.id = params.get('id');
 
-        this.ds.getHero(this.id).subscribe(
+        this.ds.getMhsId(this.id).subscribe(
           response => {
-            this.hero = response as Hero;
+            this.mhs = response as Mhs;
           },
           err => {
             console.log(err);
@@ -54,15 +77,15 @@ export class HeroFormComponent implements OnInit {
     });
   }
 
-  postHero() {
-    this.ds.postHero(this.hero).subscribe(response => {
+  postMhs() {
+    this.ds.postMhs(this.mhs).subscribe(response => {
       this.openSnackBar("Berhasil Ditambahkan", null)
       this.router.navigate(['/main']);
     });
   }
 
-  deleteHero() {
-    this.ds.deleteHero(this.hero).subscribe(
+  deleteMhs() {
+    this.ds.deleteMhs(this.mhs).subscribe(
       response => {
         this.openSnackBar("Berhasil Dihapus", null)
         this.router.navigate(['/main']);
@@ -73,8 +96,8 @@ export class HeroFormComponent implements OnInit {
     );
   }
 
-  updateHero() {
-    this.ds.updateHero(this.hero).subscribe(
+  updateMhs() {
+    this.ds.updateMhs(this.mhs).subscribe(
       response => {
         this.openSnackBar("Berhasil Diupdate", null)
         this.router.navigate(['/main']);

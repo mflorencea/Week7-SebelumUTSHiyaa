@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ShellComponent } from './shell/shell.component';
-import { MainComponent } from './main/main.component';
-import { HeroFormComponent } from './hero-form/hero-form.component';
+import { FirstComponentComponent } from './first-component/first-component.component';
+import { MhsFormComponent } from './mhs-form/mhs-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Page404Component } from './page404/page404.component';
@@ -46,6 +46,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTreeModule} from '@angular/material/tree';
+
 
 @NgModule({
   declarations: [
@@ -53,9 +55,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     HeaderComponent,
     FooterComponent,
     ShellComponent,
-    MainComponent,
-    HeroFormComponent,
+    MhsFormComponent,
     Page404Component,
+    FirstComponentComponent,
   ],
   imports: [
     BrowserModule,

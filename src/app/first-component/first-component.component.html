@@ -1,0 +1,36 @@
+<div class="button-holder">
+        <button mat-raised-button color="primary" routerLink="/mhs">
+          Tambah Calon Mahasiswa Baru
+        </button>
+      </div>
+      <div class="table">
+        <table mat-table [dataSource]="mhs" class="mat-elevation-z8">
+          <ng-container matColumnDef="mhsName">
+            <th mat-header-cell *matHeaderCellDef>Nama Lengkap</th>
+            <td mat-cell *matCellDef="let mhs">{{ mhs.mhsName }}</td>
+          </ng-container>
+          <ng-container matColumnDef="smaName">
+            <th mat-header-cell *matHeaderCellDef>Asal SMA</th>
+            <td mat-cell *matCellDef="let mhs">{{ mhs.smaName }}</td>
+          </ng-container>
+          <ng-container matColumnDef="domisili">
+            <th mat-header-cell *matHeaderCellDef>Domisili Tinggal</th>
+            <td mat-cell *matCellDef="let mhs">{{ mhs.domisili }}</td>
+          </ng-container>
+          <ng-container matColumnDef="tanggal">
+            <th mat-header-cell *matHeaderCellDef>Tanggal Pendaftaran</th>
+            <td mat-cell *matCellDef="let mhs">{{ mhs.tanggal }}</td>
+          </ng-container>
+          <ng-container matColumnDef="jurusan">
+            <th mat-header-cell *matHeaderCellDef>Pilihan Jurusan</th>
+            <td mat-cell *matCellDef="let mhs">{{ mhs.jurusan }}</td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            [routerLink]="'/mhs/' + row._id"
+          ></tr>
+        </table>
+      </div>
+      

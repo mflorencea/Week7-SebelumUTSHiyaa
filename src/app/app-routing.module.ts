@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from './main/main.component';
+import { FirstComponentComponent } from './first-component/first-component.component';
 import { ShellComponent } from './shell/shell.component';
-import { HeroFormComponent } from './hero-form/hero-form.component';
+import { MhsFormComponent } from './mhs-form/mhs-form.component';
 import { Page404Component } from './page404/page404.component';
 
 const routes: Routes = [
@@ -18,15 +18,15 @@ const routes: Routes = [
       },
       {
         path: 'main',
-        component: MainComponent
+        component: FirstComponentComponent
       },
       {
-        path: 'hero/:id',
-        component: HeroFormComponent
+        path: 'mhs/:id',
+        component: MhsFormComponent
       },
       {
-        path: 'hero',
-        component: HeroFormComponent
+        path: 'mhs',
+        component: MhsFormComponent
       }
     ]
   },
